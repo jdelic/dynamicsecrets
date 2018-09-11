@@ -49,7 +49,7 @@ directory structure:
 
 Then add a ``ext_pillar`` configuration to your salt-master:
 
-.. code-block::yaml
+.. code-block:: yaml
 
     # Extension modules
     extension_modules: /srv/salt-modules
