@@ -5,10 +5,10 @@ This module solves the *Initial Secret Introduction Problem* for Salt. You
 assign secrets to nodes (or grains) and then use them in your states through the
 ``dynamicsecrets`` pillar. Secrets can be configured to represent
 
- * cryptographically secure UUIDs, 
- * cryptographically secure strings of random characters suitable for passwords
- * or base64-encoded random bytes or
- * RSA keys
+* cryptographically secure UUIDs, 
+* cryptographically secure strings of random characters suitable for passwords
+* or base64-encoded random bytes or
+* RSA keys
 
 Secrets can be constant across the cluster or even differ for each salt-minion. 
 
@@ -95,9 +95,9 @@ source (as long as the OS provides one).
 For ``type: rsa`` the Pillar will return a ``dict`` that has the following
 properties:
 
- * ``public_pem`` the public key in OpenSSL PEM encoding
- * ``public`` the public key in `ssh-rsa` format
- * ``key`` the private key in PEM encoding
+* ``public_pem`` the public key in OpenSSL PEM encoding
+* ``public`` the public key in `ssh-rsa` format
+* ``key`` the private key in PEM encoding
 
 
 Usage
