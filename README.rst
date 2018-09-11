@@ -97,7 +97,7 @@ your code can also use the dynamicsecrets Salt execution module. So in
 ``pydsl`` states, reactors or in your own modules you can directly interface
 with the module like this:
 
-.. code-block: python
+.. code-block:: python
 
     # get or create a secret for a specific host in a reactor
     # Note: in a reactor SLS, data['id'] is the salt-minion's ID
@@ -110,18 +110,18 @@ with the module like this:
     )
 
     # get all secrets stored under a key (for all hosts)
-    for sekrit in salt['dynamicsecrets']..loadall(
+    for sekrit in salt['dynamicsecrets'].loadall(
         'consul-acl-token):
         ...
     
-    if salt['dynamicsecrets']..exists('consul-master-token',
+    if salt['dynamicsecrets'].exists('consul-master-token',
         host="saltmaster"):
         ...
 
 
 The Salt execution module can also be executed using the Salt client:
 
-.. code-block: shell
+.. code-block:: shell
 
     $ salt 'saltmaster' dynamicsecrets.load consul-acl-token host=saltmaster
 
