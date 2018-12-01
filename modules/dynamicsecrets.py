@@ -70,7 +70,7 @@ class DynamicSecretsStore(object):
 
     @staticmethod
     def _deserialize_secret(secret, secrettype):
-        # type: (str, str) -> Union[Dict[str, str], str]
+        # type: (str, str) -> Union[Dict[str, str], ConsulAclToken, str]
         if secrettype == "rsa":
             key = RSA.importKey(secret)
             return {
@@ -257,8 +257,9 @@ def match_minion_id(minion_id, hostconfig):
 
 
 def __init__(opts):
-    global _DEFAULT_PATH, _CONSUL_URL, _CONSUL_TOKEN, _CONSUL_TOKEN_SECRET
     # type: (Dict[str, Any]) -> None
+    global _DEFAULT_PATH, _CONSUL_URL, _CONSUL_TOKEN, _CONSUL_TOKEN_SECRET
+
     if "dynamicsecrets.path" in opts:
         _DEFAULT_PATH = opts["dynamicsecrets.path"]
     if "dynamicsecrets.consul_url" in opts:
