@@ -65,30 +65,30 @@ Then add a ``ext_pillar`` configuration to your salt-master:
     dynamicsecrets.consul_token_secret: consul-acl-master-token
 
     ext_pillar:
-    - dynamicsecrets:
-        config:
-            approle-auth-token:
-                type: uuid
-            concourse-encryption:
-                length: 32
-            concourse-hostkey:
-                length: 2048
-                type: rsa
-            consul-acl-token:
-                type: consul-acl-token
-                unique-per-host: True
-            consul-acl-master-token:
-                type: uuid
-            consul-encryptionkey:
-                encode: base64
-                length: 16
-        grainmapping:
-            roles:
-                authserver:
-                    - approle-auth-token
-        hostmapping:
-            '*':
-                - consul-acl-token
+        - dynamicsecrets:
+            config:
+                approle-auth-token:
+                    type: uuid
+                concourse-encryption:
+                    length: 32
+                concourse-hostkey:
+                    length: 2048
+                    type: rsa
+                consul-acl-token:
+                    type: consul-acl-token
+                    unique-per-host: True
+                consul-acl-master-token:
+                    type: uuid
+                consul-encryptionkey:
+                    encode: base64
+                    length: 16
+            grainmapping:
+                roles:
+                    authserver:
+                        - approle-auth-token
+            hostmapping:
+                '*':
+                    - consul-acl-token
 
 
 In the above example, every node that has the grain ``roles:authserver`` can
